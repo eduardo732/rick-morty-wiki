@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/header/Header'
 import { styled } from 'styled-components'
-import SearcherForm from '../components/characters/filters/SearcherForm'
-import CharacterList from '../components/characters/content/CharacterList'
-import Filter from '../components/characters/filters/Filter'
+import SearcherForm from '../components/filters/SearcherForm'
+import CharacterList from '../components/content/CharacterList'
+import Filter from '../components/filters/Filter'
+import MyPagination from '../components/pagination/MyPagination'
 
 const StyledDiv = styled.div`
 	display: flex;
@@ -13,6 +14,12 @@ const StyledDiv = styled.div`
 `
 const StyledP = styled.p`
 	margin: 10% 30% 0 0;
+`
+const StyledContainer = styled.div`
+	width: 70%;
+	margin: 10px 20px;
+	display: flex;
+	flex-direction: column;
 `
 const Home = () => {
 	const [characters, setCharacters] = useState([])
@@ -94,14 +101,19 @@ const Home = () => {
 					/>
 					{
 						characters && characters.length > 0 ? (
-							<CharacterList 
-								characters={characters}
-								onNextPage={handleNextPage}
-								onPrevPage={handlePreviousPage}	  
-								onPageChange={handleNewPage}
-								totalPages={totalPages}
-								pageNumber={pageNumber}
-							/>
+							<StyledContainer>
+								<CharacterList 
+									characters={characters}
+								/>
+								<MyPagination
+									onNextPage={handleNextPage}
+									onPrevPage={handlePreviousPage}
+									onPageChange={handleNewPage}
+									totalPages={totalPages}
+									pageNumber={pageNumber}
+								/>
+							</StyledContainer>
+							
 						) : (
 							<StyledP>No characters Found</StyledP>
 						)

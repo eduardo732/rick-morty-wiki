@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Accordion, Button } from 'react-bootstrap';
 import { styled } from 'styled-components';
 
@@ -13,7 +13,7 @@ const StyledDiv = styled.div`
 const StyledAccordion = styled(Accordion)`
 	width: 80%;
 `
-const Filter = ({ characters, 
+const Filter = memo(({ characters, 
 	onFilterStatusChange, 
 	onFilterSpeciesChange, 
 	onFilterGenderChange, 
@@ -86,7 +86,7 @@ const Filter = ({ characters,
 			</StyledAccordion>
     </StyledDiv>
   );
-};
+})
 
 export default Filter
 
