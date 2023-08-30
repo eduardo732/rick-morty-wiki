@@ -1,26 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import Header from '../components/header/Header'
-import { styled } from 'styled-components'
 import SearcherForm from '../components/filters/SearcherForm'
 import CharacterList from '../components/content/CharacterList'
 import Filter from '../components/filters/Filter'
 import MyPagination from '../components/pagination/MyPagination'
+import StyledP from '../components/styled/StyledP'
+import StyledDiv from '../components/styled/StyledDiv'
+import StyledContainer from '../components/styled/StyledContainer'
 
-const StyledDiv = styled.div`
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	justify-content: space-between;
-`
-const StyledP = styled.p`
-	margin: 10% 30% 0 0;
-`
-const StyledContainer = styled.div`
-	width: 70%;
-	margin: 10px 20px;
-	display: flex;
-	flex-direction: column;
-`
+
 const Home = () => {
 	const [characters, setCharacters] = useState([])
 
@@ -71,12 +59,12 @@ const Home = () => {
 		setPageNumber(1)
 	}
 	const handleNextPage = () => {
-		if(pageNumber < totalPages) {
+		if (pageNumber < totalPages) {
 			setPageNumber(pageNumber + 1)
 		}
 	}
 	const handlePreviousPage = () => {
-		if(pageNumber > 1) {
+		if (pageNumber > 1) {
 			setPageNumber(pageNumber - 1)
 		}
 	}
@@ -90,35 +78,35 @@ const Home = () => {
 	return (
 		<>
 			<Header>Characters</Header>
-			<SearcherForm onSubmit={handleSearch}/>
+			<SearcherForm onSubmit={handleSearch} />
 			<StyledDiv>
-					<Filter
-						characters={characters}
-						onClearFilters={clear}
-						onFilterStatusChange={handleFilterStatus}
-						onFilterSpeciesChange={handleFilterSpecies}
-						onFilterGenderChange={handleFilterGender}
-					/>
-					{
-						characters && characters.length > 0 ? (
-							<StyledContainer>
-								<CharacterList 
-									characters={characters}
-								/>
-								<MyPagination
-									onNextPage={handleNextPage}
-									onPrevPage={handlePreviousPage}
-									onPageChange={handleNewPage}
-									totalPages={totalPages}
-									pageNumber={pageNumber}
-								/>
-							</StyledContainer>
-							
-						) : (
-							<StyledP>No characters Found</StyledP>
-						)
-					}
-				</StyledDiv>
+				<Filter
+					characters={characters}
+					onClearFilters={clear}
+					onFilterStatusChange={handleFilterStatus}
+					onFilterSpeciesChange={handleFilterSpecies}
+					onFilterGenderChange={handleFilterGender}
+				/>
+				{
+					characters && characters.length > 0 ? (
+						<StyledContainer>
+							<CharacterList
+								characters={characters}
+							/>
+							<MyPagination
+								onNextPage={handleNextPage}
+								onPrevPage={handlePreviousPage}
+								onPageChange={handleNewPage}
+								totalPages={totalPages}
+								pageNumber={pageNumber}
+							/>
+						</StyledContainer>
+
+					) : (
+						<StyledP>No characters Found</StyledP>
+					)
+				}
+			</StyledDiv>
 		</>
 	)
 }

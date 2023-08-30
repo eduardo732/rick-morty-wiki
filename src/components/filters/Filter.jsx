@@ -9,6 +9,9 @@ const StyledDiv = styled.div`
 	width:30%;
 	justify-content: start;
 	align-items: center;
+	@media (max-width: 600px) {
+		width:60%;
+	}
 `
 const StyledAccordion = styled(Accordion)`
 	width: 80%;
@@ -53,7 +56,7 @@ const Filter = memo(({ characters,
 
   return (
     <StyledDiv>
-      <h2>Filter</h2>
+      <h2>Filters</h2>
 			<Button variant="link" onClick={() => handleClear()}>Clear filters</Button>
       <StyledAccordion>
 			<Accordion.Item eventKey="0">

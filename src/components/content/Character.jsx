@@ -9,9 +9,24 @@ const StyledCard = styled.div`
   border-radius: 4px;
 	border: 2px solid #7d7dff;
 	box-sizing: border-box;
-  width: 30%;
-	height: 360px;
+  width: 32%;
+	height: 370px;
 	margin-bottom: 15px;
+	@media (max-width: 900px) {
+		width: 47%;
+		height: 280px;
+		font-size: 0.5rem;
+	}
+	@media (max-width: 800px) {
+		height: 250px;
+	}
+	@media (max-width: 540px) {
+		height: 200px;
+	}
+	@media (max-width: 450px) {
+		width: 100%;
+		height: auto;
+	}
 `
 const StyledContainer = styled.div`
 	position: relative;
@@ -45,12 +60,18 @@ const StyledBox = styled.div`
 const StyledH1 = styled.h1`
 	font-size: 1rem;
 	padding: 5px;
+	@media (max-width: 900px) {
+		font-size: 0.7rem;
+	}
 `
 
 const StyledSpan = styled.span`
 	font-size: 1rem;
 	padding: 0 5px;
 	margin-bottom: 10px;
+	@media (max-width: 900px) {
+		font-size: 0.7rem;
+	}
 `
 const Character = ({ value }) => {
 	return (

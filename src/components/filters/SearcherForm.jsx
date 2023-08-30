@@ -4,10 +4,13 @@ import { styled } from 'styled-components';
 import * as Yup from 'yup';
 
 const StyledFormikContainer = styled.div`
-	width: 100%;
+	width: 96%;
 	display: flex;
 	justify-content: center;
 	margin: 20px; 
+	@media (max-width: 900px) {
+		margin: 0;
+	}
 `
 const StyledForm = styled(Form)`
 	display:flex;
@@ -15,9 +18,18 @@ const StyledForm = styled(Form)`
 	justify-content: space-evenly;
 	align-items: center;
 	width: 40%;
+	@media (max-width: 900px) {
+		flex-direction: column;
+		height: 100px;
+		width: 100%;
+		margin-bottom: 5px;
+	}
 `
 const StyledDiv = styled.div`
 	width: 60%;
+	@media (max-width: 900px) {
+		margin-bottom: 10px;
+	}
 `
 const StyledField = styled(Field)`
 	border: none;
