@@ -62,6 +62,7 @@ const Episode = () => {
 						<StyledContainer>
 							<CharacterList
 								characters={characters}
+								page='/episode/'
 							/>
 						</StyledContainer>
 

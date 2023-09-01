@@ -9,10 +9,10 @@ const StyledCharacters = styled.div`
   justify-content: space-between;
 `
 
-const CharacterList = memo(({ characters }) => {
+const CharacterList = memo(({ characters, page }) => {
 	return (
 			<StyledCharacters>
-				{characters.map(value => <Character key={value.id} value={value} />)}
+				{characters.map(value => <Character key={value.id} value={value} page={page} />)}
 			</StyledCharacters>
 			
 	)

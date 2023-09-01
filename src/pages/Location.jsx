@@ -62,6 +62,7 @@ const Location = () => {
 						<StyledContainer>
 							<CharacterList
 								characters={characters}
+								page='/location/'
 							/>
 						</StyledContainer>
 

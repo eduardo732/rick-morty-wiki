@@ -92,6 +92,7 @@ const Home = () => {
 						<StyledContainer>
 							<CharacterList
 								characters={characters}
+								page='/'
 							/>
 							<MyPagination
 								onNextPage={handleNextPage}

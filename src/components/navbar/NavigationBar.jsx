@@ -40,9 +40,9 @@ const NavigationBar = () => {
 			<Navbar.Toggle aria-controls='navbarScroll' data-bs-target='#navbarScroll'/>
 			<Navbar.Collapse id='navbarScroll' className="justify-content-end">
 				<Nav>
-					<StyledNavLink eventKey={1} as={Link} to='/rick-morty-wiki' selected={isSelected === 'button1'} onClick={(e) => handleButtonClick('button1', e)}>Characters</StyledNavLink>
-					<StyledNavLink eventKey={2} as={Link} to='/rick-morty-wiki/episode' selected={isSelected === 'button2'} onClick={(e) => handleButtonClick('button2', e)}>Episode</StyledNavLink>
-					<StyledNavLink eventKey={3} as={Link} to='/rick-morty-wiki/location' selected={isSelected === 'button3'} onClick={(e) => handleButtonClick('button3', e)}>Location</StyledNavLink>
+					<StyledNavLink eventKey={1} as={Link} to='/' selected={isSelected === 'button1'} onClick={(e) => handleButtonClick('button1', e)}>Characters</StyledNavLink>
+					<StyledNavLink eventKey={2} as={Link} to='/episode' selected={isSelected === 'button2'} onClick={(e) => handleButtonClick('button2', e)}>Episode</StyledNavLink>
+					<StyledNavLink eventKey={3} as={Link} to='/location' selected={isSelected === 'button3'} onClick={(e) => handleButtonClick('button3', e)}>Location</StyledNavLink>
 				</Nav>
 			</Navbar.Collapse>
 		</StyledNav>

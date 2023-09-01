@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { styled } from 'styled-components'
 
-const StyledCard = styled.div`
+const StyledCardLink = styled(Link)`
 	display: flex;
 	flex-direction: column;
 	align-items: start;
@@ -12,6 +13,8 @@ const StyledCard = styled.div`
   width: 32%;
 	height: 370px;
 	margin-bottom: 15px;
+	text-decoration: none;
+	color: black;
 	@media (max-width: 900px) {
 		width: 47%;
 		height: 280px;
@@ -43,17 +46,17 @@ const StyledBox = styled.div`
 	margin: 5px;
 	color: white;
 	background-color: ${props => {
-    switch (props.status) {
-      case 'Alive':
-        return 'green';
-      case 'Dead':
-        return 'red';
-      case 'unknown':
-        return 'gray';
-      default:
-        return 'red'; 
-    }
-  }};
+		switch (props.status) {
+			case 'Alive':
+				return 'green';
+			case 'Dead':
+				return 'red';
+			case 'unknown':
+				return 'gray';
+			default:
+				return 'red';
+		}
+	}};
 	padding: 2px 5px;
 	border-radius: 5px;
 `
@@ -73,18 +76,18 @@ const StyledSpan = styled.span`
 		font-size: 0.7rem;
 	}
 `
-const Character = ({ value }) => {
+const Character = ({ value, page }) => {
 	return (
-		<StyledCard>
-			<StyledContainer>
-				<StyledImg src={value.image} alt='/'/>
-				<StyledBox status={value.status}>{value.status}</StyledBox>
-			</StyledContainer>
-			
-			<StyledH1>{value.name}</StyledH1>
-			<StyledSpan>Last Location</StyledSpan>
-			<StyledSpan>{value.location.name}</StyledSpan>
-		</StyledCard>
+		<StyledCardLink to={`${page}${value.id}`}>
+				<StyledContainer>
+					<StyledImg src={value.image} alt='/' />
+					<StyledBox status={value.status}>{value.status}</StyledBox>
+				</StyledContainer>
+
+				<StyledH1>{value.name}</StyledH1>
+				<StyledSpan>Last Location</StyledSpan>
+				<StyledSpan>{value.location.name}</StyledSpan>
+		</StyledCardLink>
 	)
 }
 
